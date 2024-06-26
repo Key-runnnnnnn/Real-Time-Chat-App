@@ -16,7 +16,7 @@ const protectRoute = async (req, res, next) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    req.User = user;
+    req.user = user;
     next();
   } catch (error) {
     console.log('Error in protectRoute middleware:', error.message);
