@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx nodemon backend/server.js"
   },
-  "type":"module",
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
