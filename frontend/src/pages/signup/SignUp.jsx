@@ -1,7 +1,7 @@
 import React from "react";
-import GenderCheckbox from "./GenderCheckbox";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import GenderCheckbox from "./GenderCheckbox";
 import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
@@ -13,15 +13,15 @@ const SignUp = () => {
     gender: "",
   });
 
-  const { loading, signup } = useSignup();
-
+  const { loading,signup } = useSignup();
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // to prevent the default behaviour of the form
+    e.preventDefault();
     await signup(inputs);
+    // console.log(inputs);
   };
 
   return (
@@ -105,9 +105,9 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button className="btn btn-block btn-sm mt-2 border border-slate-700">
-              Sign Up
-            </button>
+          <button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
+							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
+						</button>
           </div>
         </form>
       </div>
